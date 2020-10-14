@@ -1,0 +1,26 @@
+{% extends 'appTwo/base.html' %}
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+ 
+    </head>
+    <body>
+        {% block body_block %}
+        <div class="container">
+            <div class="jumbotron">
+                
+                <form method="POST">
+                {{form.as_p}}
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="submit"/>
+                </form>
+                
+           
+            </div>
+        </div>
+        {% endblock %} 
+    </body>
+</html>

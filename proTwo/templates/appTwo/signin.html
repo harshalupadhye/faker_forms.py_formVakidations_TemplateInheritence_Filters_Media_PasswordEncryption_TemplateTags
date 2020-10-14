@@ -1,0 +1,33 @@
+{% extends 'appTwo/base.html' %}
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/signin.css' %}" />
+       
+    <body>
+        {% block body_block %}
+        <div class="container">
+            <div class="jumbotron">
+                
+             <h1 id="title">Enter User Credentials</h1>
+             
+             
+             <form method="POST">
+                 {{form.as_p}}
+                 {% csrf_token %}
+                 <input type="submit" class="btn btn-primary" value="Submit">
+                 <a id="refre" href="{% url 'appTwo:userinfo' %}">Already Registered Users List</a>
+                 <p></p>
+                 <a id="tab" href="{% url 'admin:index' %}">Admin Panel</a>
+                 <p></p>
+                 <a id="ind" href="{% url 'index' %}">Main Page</a>
+             </form>
+           
+            </div>
+        </div>
+        {% endblock %}  
+    </body>
+</html>

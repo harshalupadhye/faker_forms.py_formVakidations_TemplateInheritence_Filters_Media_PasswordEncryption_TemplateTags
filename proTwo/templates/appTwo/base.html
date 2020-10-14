@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+     
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li><a class="navbar-brand" href="{% url 'index' %}">Main</a></li>
+                    <li><a class="navbar-link" href="{% url 'appTwo:userinfo' %}">Users</a></li>
+                    <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+                    <li><a class="navbar-link" href="{% url 'appTwo:forms' %}">Form</a></li>
+                    <li><a class="navbar-link" href="{% url 'appTwo:signin' %}">Signin</a></li>
+                    <li><a class="navbar-link" href="{% url 'appTwo:app' %}">Date</a></li>
+                    <li><a class="navbar-link" href="{% url 'appTwo:others' %}">Other</a></li>
+                   
+                    <li><a class="navbar-link" href="{% url 'appTwo:register' %}">Register</a></li>
+                    
+                    {% if user.is_authenticated %}
+                    <li><a class="navbar-link" href="{% url 'appTwo:user_logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a class="navbar-link" href="{% url 'appTwo:user_login' %}">Login</a></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            {% block body_block %}
+
+            {% endblock %}
+        </div>
+    </body>

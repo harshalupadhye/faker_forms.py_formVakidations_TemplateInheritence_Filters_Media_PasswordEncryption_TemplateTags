@@ -1,0 +1,53 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>user info</title>
+    </head>
+    <body>
+        {% if user_records %}
+        <table border="1">
+            <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </thead>
+            {% for acc in user_records %}
+            <tr>
+                <td>
+                    {{acc.fname}}
+                </td>
+                <td>{{acc.lname}}</td>
+                <td>{{acc.email}}</td>
+                
+            </tr>
+            {% endfor %}
+            
+        </table>
+        {% else %}
+        <p>Records not found</p>
+        {% endif %}
+        {% if access_record %}
+        <table border="1">
+            <thead>
+                <th>Website Name</th>
+                <th>Date Accessed</th>
+                
+            </thead>
+            {% for acc in access_record %}
+            <tr>
+                <td>
+                    {{acc.name}}
+                </td>
+                <td>{{acc.date}}</td>
+                
+                
+            </tr>
+            {% endfor %}
+            
+        </table>
+        {% else %}
+        <p>Records not found</p>
+        {% endif %}
+    </body>
+</html>

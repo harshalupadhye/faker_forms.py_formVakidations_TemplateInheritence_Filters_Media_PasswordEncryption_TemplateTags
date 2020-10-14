@@ -1,0 +1,42 @@
+{% extends 'appTwo/base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+
+{% block body_block %}
+
+<html>
+    <head>
+        <title>
+          This is hello world  
+        </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/indexs.css' %}" />
+    </head>
+    <body>
+        <h1 align="center" id="are">this is django</h1>
+        <!-- <img src="{% static 'images/load.jpg' %}"/> -->
+        <div class="djangtwo">
+            {% if access_record %}
+            <table align="center" border="1">
+                <thead>
+                    <th>Website Names</th>
+                    <th>Dates Accessed</th>
+                </thead>
+                {% for acc in access_record %}
+                <tr>
+                    <td>{{acc.name}}</td>
+                    <td>{{acc.date}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+            <p>no access records found</p>
+            {% endif %}
+           
+            
+
+            
+        </div>
+
+    </body>
+</html>
+{% endblock %}
